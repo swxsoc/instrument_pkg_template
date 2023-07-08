@@ -8,7 +8,7 @@ Overview
     :stub-columns: 1
 
     * - docs
-      - |docs| |readthedocs|
+      - |docs| {%- if cookiecutter.readthedocs_url %}|readthedocs|{%- endif %}
     * - build status
       - |testing| |codestyle|
 
@@ -38,7 +38,7 @@ A Python package to process and analyze data from {{cookiecutter.__short_string_
 
 Contributing
 ------------
-We'd love your contributions! Please see our `contribution guide <./CONTRIBUTING.md>`.
+We'd love your contributions! Please see our `contribution guide <./CONTRIBUTING.md>`_.
 
 Code of Conduct
 ---------------
