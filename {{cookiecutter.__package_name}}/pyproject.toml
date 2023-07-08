@@ -94,3 +94,11 @@ omit = [
   '*/{{cookiecutter.__package_name}}/version*',
 ]
 
+[tool.black]
+line-length = 88
+force-exclude = '''
+(
+  # Individual files to always exclude
+  ^/{{cookiecutter.__package_name}}/_version.py
+)
+'''
