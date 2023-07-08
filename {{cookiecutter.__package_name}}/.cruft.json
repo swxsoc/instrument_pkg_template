@@ -1,0 +1,21 @@
+{
+  "template": "https://github.com/swxsoc/instrument_pkg_template.git",
+  "commit": "fff54637e8cb4164f84b6e402a351c324f68eac4",
+  "context": {
+    "cookiecutter": {
+        "mission_name": "{{cookiecutter.mission_name}}",
+        "instr_name": "{{cookiecutter.instr_name}}",
+        "author_name": "{{cookiecutter.author_name}}",
+        "author_email": "{{cookiecutter.author_email}}",
+        "github_repo": "{{cookiecutter.github_repo}}",
+        "readthedocs_url": "{{cookiecutter.readthedocs_url}}",
+        "project_url": "{{cookiecutter.project_url}}",
+        "minimum_python_version": "{{cookiecutter.minimum_python_version}}",
+        "license": "{{cookiecutter.license}}",
+        "intellectual_property": "{{cookiecutter.intellectual_property}}",
+        "year": "{{cookiecutter.year}}"
+    }
+  },
+  "directory": null,
+  "checkout": null
+}
