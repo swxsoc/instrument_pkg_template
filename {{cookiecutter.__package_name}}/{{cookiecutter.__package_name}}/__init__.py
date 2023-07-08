@@ -17,9 +17,7 @@ log = _init_log(config=config)
 # Then you can be explicit to control what ends up in the namespace,
 __all__ = ["config", "print_config"]
 
-log.debug(
-    f"{{  cookiecutter.__package_name }} version: {__version__}"
-)
+log.debug(f"{{  cookiecutter.__package_name }} version: {__version__}")
 
 MISSION_NAME = "{{ cookiecutter.mission_name }}"
 INSTRUMENT_NAME = "{{cookiecutter.instr_name}}"
