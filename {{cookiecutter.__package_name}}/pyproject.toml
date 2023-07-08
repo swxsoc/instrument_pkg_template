@@ -1,0 +1,95 @@
+[build-system]
+requires = ["setuptools>=45",
+            "setuptools_scm[toml]>=6.2",
+            "wheel"]
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = "{{cookiecutter.__package_name}}"
+description = "A Python package to process and analyze data from the {{ cookiecutter.mission_name }} {{ cookiecutter.instr_name }} instrument."
+readme = "README.rst"
+dynamic = ["version"]
+authors = [{name = "{{ cookiecutter.author_name }}", email="{{ cookiecutter.author_email }}"}]
+license = {file = "LICENSE.rst"}
+requires-python = ">={{ cookiecutter.minimum_python_version }}"
+keywords = ["nasa mission", "space weather"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: Apache 2.0",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+  'astropy>=4.1.0',
+  'numpy>=1.16.0',
+]
+
+[project.optional-dependencies]
+dev = [
+  'coverage>=5.0.3',
+  'pytest',
+  'pytest-astropy',
+  'pytest-cov',
+  'black',
+  'flake8',
+  'coverage[toml]'
+]
+
+docs = [
+  'sphinx',
+  'sphinx-automodapi'
+]
+
+test = [
+  'pytest',
+  'pytest-astropy',
+  'pytest-cov',
+  'coverage[toml]'
+]
+
+style = [
+  'black',
+  'flake8'
+]
+
+[tool.setuptools.package-data]
+"{{cookiecutter.__package_name}}.data" = ["**"]
+
+[tool.setuptools]
+packages = ["{{cookiecutter.__package_name}}"]
+
+[tool.setuptools_scm]
+write_to = "{{cookiecutter.__package_name}}/_version.py"
+
+[tool.pytest.ini_options]
+testpaths = [
+   "{{cookiecutter.__package_name}}/tests",
+   "docs"
+]
+doctest_plus = "enabled"
+text_file_format = "rst"
+addopts = "--doctest-rst"
+
+[tool.coverage.run]
+omit = [
+  '{{cookiecutter.__package_name}}/__init*',
+  '{{cookiecutter.__package_name}}/conftest.py',
+  '{{cookiecutter.__package_name}}/*setup_package*',
+  '{{cookiecutter.__package_name}}/tests/*',
+  '{{cookiecutter.__package_name}}/*/tests/*',
+  '{{cookiecutter.__package_name}}/extern/*',
+  '{{cookiecutter.__package_name}}/version*',
+  '*/{{cookiecutter.__package_name}}/__init*',
+  '*/{{cookiecutter.__package_name}}/conftest.py',
+  '*/{{cookiecutter.__package_name}}/*setup_package*',
+  '*/{{cookiecutter.__package_name}}/tests/*',
+  '*/{{cookiecutter.__package_name}}/*/tests/*',
+  '*/{{cookiecutter.__package_name}}/extern/*',
+  '*/{{cookiecutter.__package_name}}/version*',
+]
+

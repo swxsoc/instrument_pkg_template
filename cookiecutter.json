@@ -1,0 +1,26 @@
+{
+    "mission_name": "SWX",
+    "instr_name": "WEATHER",
+    "__package_name": "{{ cookiecutter.mission_name|lower }}_{{ cookiecutter.instr_name|lower }}",
+    "__short_string_name": "{{ cookiecutter.mission_name|upper }} {{ cookiecutter.instr_name|upper }}",
+    "author_name": "Jane Doe",
+    "author_email": "jane.doe@notarealemail.com",
+    "github_repo": "",
+    "readthedocs_url": "",
+    "project_url": "",
+    "minimum_python_version": ["3.11", "3.10", "3.9", "3.8"],
+    "license": ["Apache Software License 2.0", "MIT", "BSD-3", "GNU GPL v3.0"],
+    "intellectual_property": ["Copyrighted", "Creative Commons", "US Government (no copyright)"],
+    "year": "{% now 'utc', '%Y' %}",
+    "_extensions": ["jinja2_time.TimeExtension"],
+    "__prompts__": {
+        "mission_name": "What is the name of the mission or (preferably) its acronym?",
+        "instr_name": "What is the name of the instrument or (preferably) its acronym?",
+        "author_name": "List the author of the package, first then last name. You can add more authors in pyproject.toml.",
+        "author_email": "Provide a contact email for the author. You can also leave this blank.",
+        "github_repo": "Provide a url to your code repository. Leave blank if you don't have this yet.",
+        "readthedocs_url": "Provide a url to your readthedocs documentation. Leave blank if you don't have one.",
+        "project_url": "Provide a url to your website if you have one. Leave blank if you don't have this yet.",
+        "minimum_python_version": "What minimum Python version do you want to impose for your package? See https://devguide.python.org/versions/."
+        }
+}
