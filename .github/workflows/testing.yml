@@ -35,7 +35,7 @@ jobs:
     - name: Install package dependencies
       working-directory: ./swx_weather
       run: |
-        python -m pip install -e .[dev]
+        python -m pip install -e ".[test]"
     - name: Run tests for rendered package
       working-directory: ./swx_weather
-      run: pytest
+      run: pytest --pyargs swx_weather
