@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.abspath(".."))
 # -- Project information -----------------------------------------------------
 
 project = "{{cookiecutter.__package_name}}"
-copyright = ""
+copyright = "{{cookiecutter.intellectual_property}} {{cookiecutter.year}}"
 author = "The {{ cookiecutter.mission_name }} {{ cookiecutter.instr_name }} Team"
 
 # The full version, including alpha/beta/rc tags

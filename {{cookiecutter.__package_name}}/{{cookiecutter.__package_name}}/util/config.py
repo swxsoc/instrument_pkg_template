@@ -100,9 +100,7 @@ def get_and_create_download_dir():
         Path({{cookiecutter.__package_name}}.config.get("downloads", "download_dir")).expanduser().resolve()
     )
     if not _is_writable_dir(download_dir):
-        raise RuntimeError(
-            f'Could not write to downloads directory="{download_dir}"'
-        )
+        raise RuntimeError(f'Could not write to downloads directory="{download_dir}"')
 
     return {{cookiecutter.__package_name}}.config.get("downloads", "download_dir")
 
