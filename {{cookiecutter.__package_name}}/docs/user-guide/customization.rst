@@ -43,4 +43,4 @@ A sample configrc file
 
     `(download) <../_static/configrc>`__
 
-.. literalinclude:: ../../{{cookiecutter.__package_name}}_eea/data/configrc
+.. literalinclude:: ../../{{cookiecutter.__package_name}}/data/configrc
