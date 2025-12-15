@@ -27,7 +27,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install cookiecutter, jinja2-time
+        python -m pip install cookiecutter jinja2-time
     - name: Render the package
       run: |
         cookiecutter . --no-input
