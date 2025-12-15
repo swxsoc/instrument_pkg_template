@@ -3,7 +3,7 @@ A module for all things calibration.
 """
 from pathlib import Path
 import random
-from typing import List
+from typing import List, Union
 
 from astropy.time import Time
 
@@ -15,7 +15,7 @@ __all__ = ["process_file",
            "read_calibration_file"]
 
 
-def process_file(data_filename: Path) -> List[Path | None]:
+def process_file(data_filename: Path) -> List[Union[Path, None]]:
     """
     This is the entry point for the pipeline processing.
     It runs all of the various processing steps required.
@@ -27,7 +27,7 @@ def process_file(data_filename: Path) -> List[Path | None]:
 
     Returns
     -------
-    output_filenames: List[Path | None]
+    output_files: List[Union[Path, None]]
         Fully specificied filenames for the output files. 
         
     Notes
