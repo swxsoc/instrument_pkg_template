@@ -12,5 +12,4 @@ For more details checkout the :ref:`reference`.
 
    Brief Tour <tour>
    data
-   customization
    logger
