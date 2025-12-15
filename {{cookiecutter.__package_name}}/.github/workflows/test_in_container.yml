@@ -18,10 +18,13 @@ jobs:
       fail-fast: false
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Run tests
       run: pytest --pyargs {{cookiecutter.__package_name}} --cov {{cookiecutter.__package_name}}
       env:
         PLATFORM: 'docker'
-    - name: Upload coverage reports to Codecov with GitHub Action
-      uses: codecov/codecov-action@v3
+    - name: Upload test results to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/test-results-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}

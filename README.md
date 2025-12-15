@@ -18,4 +18,4 @@ You can then install for the package for development with
 
 This template depends on [sunpy](https://sunpy.org) as well as [astropy](https://www.astropy.org) so you'll have to install them as well.
 
-For other dependencies such as developer dependencies see the pyproject.toml file.
+For other dependencies such as developer dependencies see the `pyproject.toml` file.
