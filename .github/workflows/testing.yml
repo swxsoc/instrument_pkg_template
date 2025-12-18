@@ -40,3 +40,6 @@ jobs:
     - name: Run tests for rendered package
       working-directory: ./swx_weather
       run: pytest
+    - name: Build docs
+      working-directory: ./swx_weather/docs
+      run: make html
