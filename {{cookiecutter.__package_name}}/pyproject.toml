@@ -37,7 +37,8 @@ dev = [
 
 docs = [
   'sphinx',
-  'sphinx-automodapi'
+  'sphinx-automodapi',
+  'pydata-sphinx-theme',
 ]
 
 test = [
