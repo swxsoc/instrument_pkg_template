@@ -1,4 +1,7 @@
 # see license/LICENSE.rst
+import os
+from pathlib import Path
+
 try:
     from ._version import version as __version__
     from ._version import version_tuple
@@ -6,16 +9,28 @@ except ImportError:
     __version__ = "unknown version"
     version_tuple = (0, 0, "unknown version")
 
-from {{cookiecutter.__package_name}}.util.config import load_config, print_config
-from {{cookiecutter.__package_name}}.util.logger import _init_log
+# Get SWXSOC_MISSIONS environment variable if it exists or use default for mission
+SWXSOC_MISSION = os.getenv("SWXSOC_MISSION", "{{  cookiecutter.mission_name }}")
+os.environ["SWXSOC_MISSION"] = SWXSOC_MISSION
+
+from swxsoc import (  # noqa: E402
+    config as swxsoc_config,
+    log as swxsoc_log,
+    print_config,
+)
+
 
 # Load user configuration
-config = load_config()
+config = swxsoc_config
 
-log = _init_log(config=config)
+log = swxsoc_log
 
 # Then you can be explicit to control what ends up in the namespace,
 __all__ = ["config", "print_config"]
+
+_package_directory = Path(__file__).parent
+_data_directory = _package_directory / "data"
+_test_files_directory = _package_directory / "data" / "test"
 
 log.debug(
     f"{{  cookiecutter.__package_name }} version: {__version__}"

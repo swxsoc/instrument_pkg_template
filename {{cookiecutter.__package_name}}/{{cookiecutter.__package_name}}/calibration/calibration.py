@@ -3,6 +3,7 @@ A module for all things calibration.
 """
 from pathlib import Path
 import random
+from typing import List, Union
 
 from astropy.time import Time
 
@@ -14,25 +15,32 @@ __all__ = ["process_file",
            "read_calibration_file"]
 
 
-def process_file(data_filename: Path) -> list:
+def process_file(data_filename: Path) -> List[Union[Path, None]]:
     """
     This is the entry point for the pipeline processing.
     It runs all of the various processing steps required.
 
     Parameters
     ----------
-    data_filename: str
+    data_filename: Path
         Fully specificied filename of an input file
 
     Returns
     -------
-    output_filenames: list
-        Fully specificied filenames for the output files.
+    output_files: List[Union[Path, None]]
+        Fully specificied filenames for the output files. 
+        
+    Notes
+    -----
+    If you want to have the pipeline mark files as processes, but don't want to return an output file,
+    return a list with None element. 
+    If you don't want to mark the file as processed, return an empty list.
     """
     log.info(f"Processing file {data_filename}.")
     output_files = []
 
     #  calibrated_file = calibrate_file(data_filename)
+    calibrated_file = None
     output_files.append(calibrated_file)
     #  data_plot_files = plot_file(data_filename)
     #  calib_plot_files = plot_file(calibrated_file)

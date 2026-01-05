@@ -27,22 +27,18 @@ classifiers = [
 dependencies = [
   'astropy>=4.1.0',
   'numpy>=1.16.0',
+  'swxsoc @ git+https://github.com/swxsoc/swxsoc.git@main',
 ]
 
 [project.optional-dependencies]
 dev = [
-  'coverage>=5.0.3',
-  'pytest',
-  'pytest-astropy',
-  'pytest-cov',
-  'black',
-  'flake8',
-  'coverage[toml]'
+  "{{cookiecutter.__package_name}}[docs,test,style]"
 ]
 
 docs = [
   'sphinx',
-  'sphinx-automodapi'
+  'sphinx-automodapi',
+  'pydata-sphinx-theme',
 ]
 
 test = [
@@ -52,10 +48,7 @@ test = [
   'coverage[toml]'
 ]
 
-style = [
-  'black',
-  'flake8'
-]
+style = ['ruff']
 
 [tool.setuptools.package-data]
 "{{cookiecutter.__package_name}}.data" = ["**"]
