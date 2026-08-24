@@ -9,21 +9,17 @@ except ImportError:
     __version__ = "unknown version"
     version_tuple = (0, 0, "unknown version")
 
-# Get SWXSOC_MISSIONS environment variable if it exists or use default for mission
-SWXSOC_MISSION = os.getenv("SWXSOC_MISSION", "{{  cookiecutter.mission_name }}")
-os.environ["SWXSOC_MISSION"] = SWXSOC_MISSION
+import swxsoc
+from swxsoc import print_config  # noqa: E402
 
-from swxsoc import (  # noqa: E402
-    config as swxsoc_config,
-    log as swxsoc_log,
-    print_config,
-)
-
+# Force the mission environment variable and reconfigure regardless of import order
+os.environ["SWXSOC_MISSION"] = "{{ cookiecutter.mission_name }}"
+swxsoc.reconfigure()
 
 # Load user configuration
-config = swxsoc_config
+config = swxsoc.config
 
-log = swxsoc_log
+log = swxsoc.log
 
 # Then you can be explicit to control what ends up in the namespace,
 __all__ = ["config", "print_config"]
